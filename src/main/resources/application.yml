@@ -1,0 +1,52 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: web
+  redis:
+    host: 127.0.0.1
+    pool:
+      max-idle: 8
+      min-idle: 0
+      port: 6379
+#    port: 6380
+    password:
+  mvc:
+    view:
+      prefix: /page/
+      suffix: .jsp
+  http:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 100Mb
+
+logging:
+  level:
+    root: info
+  path: logs
+#datasource config
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://139.199.101.89/LW?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
+  username: wangqiyue
+  password: lw123456.
+#  url: jdbc:mysql://localhost:3306/meishule_education?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true
+#  username: root
+#  password: Meishule@123
+#  url: jdbc:mysql://localhost:3306/meishule_education_test?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true
+#  username: root
+#  password: Meishule@123
+  maxWait: 5000
+  maxActive: 50
+  removeAbandoned: true
+  removeAbandonedTimeout: 180
+
+
+#mybatis config
+mybatis:
+  typeAliasesPackage: com.main.java
+  mapperLocations: classpath:mapper/**/*.xml
+
+snowflake:
+  workerId: 0
+  datacenterId: 0
